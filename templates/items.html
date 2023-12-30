@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>html</title>
+        <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Lista de items</h1>
+        <a href="/cadastro/">
+            <button type="button">Novo item</button>
+        </a> 
+        {% if has_items %}
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.nome }}</td>
+                        <td>{{ item.price}}</td>
+                        <td>
+                            <a href="/items/{{ item.id }}/edit/">
+                                <button type="button">
+                                    editar
+                                </button>
+                            </a>
+                            <a href="/items/{{ item.id }}/remove/">
+                                <button type="button">
+                                    remover
+                                </button>
+                            </a>
+                            <a href="/items/{{ item.id }}/">
+                                <button type="button">
+                                    detalhar
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table> 
+        {% else %}
+            <p class="text-red-500">Não há items cadastrados</p>
+        {% endif %} 
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>cadastro</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Dados no novo item</h1>
+    <form action="/processar-formulario" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="price">Preço:</label>
+        <input type="price" id="price" name="price" required>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
